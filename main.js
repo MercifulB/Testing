@@ -2,6 +2,7 @@ import * as THREE from 'three';
 import './style.css';
 import './cards.css';
 import './dice.css';
+import './contact-form.css';
 
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
