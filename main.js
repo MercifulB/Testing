@@ -129,7 +129,7 @@ const objectsDistance = 2
 
 // Microscope
 
-gltfLoader.load('.microscope.gltf', (gltfScene)=>{
+gltfLoader.load('microscope.gltf', (gltfScene)=>{
   //loadedModel = gltfScene;
   //gltfScene.scene.rotation.y = Math.PI / 8;
   gltfScene.scene.position.y = 0;
