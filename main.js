@@ -1,393 +1,203 @@
-import * as THREE from 'three';
-import './style.css';
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
-import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
+import * as THREE from 'three'
+import './style.css'
+import gsap from 'gsap'
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
 
 
-const scene = new THREE.Scene();
+//* ---------Basic setup-------------
 
-const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
+const scene = new THREE.Scene()
+
+//! Sizes  Really...!!!  Howaaaaaaaiiiiiiiiiiiiiii..........
+const sizes = {
+    width: window.innerWidth,
+    height: window.innerHeight
+}
+
+const camera = new THREE.PerspectiveCamera(40, sizes.width / sizes.height, 0.01, 2000)
+
+camera.position.set(10, 0, 28)
+camera.rotation.set(0, 15, 0)
+
 
 const renderer = new THREE.WebGLRenderer({
-  canvas: document.querySelector('#bg'),
-});
-
-var bgcolor = 0xffffff;
-
-renderer.setPixelRatio( window.devicePixelRatio );
-renderer.setSize( window.innerWidth, window.innerHeight );
-camera.position.setZ(30);
-
-
-
-renderer.render( scene, camera );
-// Torus
-const geometry = new THREE.TorusGeometry( 10, 2, 16, 100 )
-const material = new THREE.MeshStandardMaterial( { color: 0xFF6347,  } );
-const torus = new THREE.Mesh( geometry, material );
-// Pentagon
-const geometry2 = new THREE.TorusGeometry( 5, 1, 20, 5 )
-const material2 = new THREE.MeshStandardMaterial( { color: 0x0095DD,  } );
-const torus2 = new THREE.Mesh( geometry2, material2 );
-torus2.position.z = 0;
-torus2.position.x = 40;
-torus2.position.y = 10;
-
-scene.add(torus, torus2)
-
-const pointLight = new THREE.PointLight(0xffffff)
-pointLight.position.set(5,5,5)
-
-const ambientLight = new THREE.AmbientLight(bgcolor);
-scene.add(pointLight, ambientLight)
-
-const lightHelper = new THREE.PointLightHelper(pointLight)
-const gridHelper = new THREE.GridHelper(200, 50);
-scene.add(lightHelper, gridHelper)
-
-const controls = new OrbitControls(camera, renderer.domElement);
-
-const geo = new THREE.SphereGeometry(0.25, 24, 24);
-const mat = new THREE.MeshStandardMaterial( { color: 0xffffff } )
-
-function addStar() {
-  const geometry = geo
-  const material = mat
-  const star = new THREE.Mesh( geometry, material );
-
-  const [x, y, z] = Array(3).fill().map(() => THREE.MathUtils.randFloatSpread( 100 ) );
-
-  star.position.set(x, y, z);
-  scene.add(star)
-}
-
-Array(200).fill().forEach(addStar)
-
-const spaceTexture = new THREE.TextureLoader().load('s.png');
-scene.background = spaceTexture;
-
-//cube
-
-const nigTexture = new THREE.TextureLoader().load('wh pro.png');
-
-const nig = new THREE.Mesh(
-  new THREE.BoxBufferGeometry(3, 3, 3, 10, 10, 10),
-  new THREE.MeshBasicMaterial( { map: nigTexture } )
-);
-
-// My logo
-const circleTexture = new THREE.TextureLoader().load('Icon.svg');
-
-const circle = new THREE.Mesh(
-  new THREE.CircleGeometry(8,100),
-  new THREE.MeshBasicMaterial( { map: circleTexture } )
-);
-circle.position.z = -20;
-circle.position.x = -60;
-circle.position.y = 30;
-
-// Microscope Orthographic
-const orthTexture = new THREE.TextureLoader().load('microortho.png');
-
-const orth = new THREE.Mesh(
-  new THREE.PlaneGeometry(4,4),
-  new THREE.MeshBasicMaterial( { map: orthTexture } )
-);
-orth.position.z = 20;
-orth.position.x = 7;
-orth.position.y = 0;
-
-
-scene.add(nig, circle);
-
-// World
-
-const worldTexture = new THREE.TextureLoader().load('map2.jpg');
-const normalTexture = new THREE.TextureLoader().load('mars.png');
-
-
-const world = new THREE.Mesh(
-  new THREE.SphereGeometry(3, 32, 32),
-  new THREE.MeshStandardMaterial( { 
-    map: worldTexture,
-    normalMap: normalTexture
-  } )
-);
-
-scene.add(world);
-
-world.position.z = 40;
-world.position.setX(-10);
-
-const gltfLoader = new GLTFLoader();
-
-const objectsDistance = 2
-
-// Microscope
-
-gltfLoader.load('.microscope.gltf', (gltfScene)=>{
-  //loadedModel = gltfScene;
-  //gltfScene.scene.rotation.y = Math.PI / 8;
-  gltfScene.scene.position.y = 0;
-  gltfScene.scene.position.x = 10;
-  gltfScene.scene.position.z = 10;
-
-  gltfScene.scene.rotation.x = 5;
-  gltfScene.scene.rotation.y = 25;
-  gltfScene.scene.rotation.z = 30;
-
-  gltfScene.scene.scale.set(0.025, 0.025, 0.025);
-  scene.add(gltfScene.scene);
-});
-
-// Scroll Animation
-function moveCamera() {
-  
-  const t = document.body.getBoundingClientRect().top;
-  world.rotation.x += 0.05;
-  world.rotation.y += 0.075;
-  world.rotation.z += 0.05;
-
-  torus2.rotation.x += -0.02;
-  torus2.rotation.y += -0.01;
-  torus2.rotation.z += -0.02;
-
-  nig.rotation.x += 0.01;
-  nig.rotation.z += 0.01;
-
-  //orth.position.x += -0.5;
-  
-  // circle.rotation.x += 0.01;
-
-  camera.position.z = t * -0.01;
-  camera.position.x = t * -0.0002;
-  camera.position.y = t * -0.0002;
-}
-
-document.body.onscroll = moveCamera
-
-// Animation Loop
-function animate() {
-  requestAnimationFrame( animate );
-
-  torus.rotation.x += 0.01;
-  torus.rotation.y += 0.005;
-  torus.rotation.z += 0.01;
-
-  torus2.rotation.x += -0.01;
-  torus2.rotation.y += -0.005;
-  torus2.rotation.z += -0.01;
-  
-  controls.update();
-
-  renderer.render( scene, camera );
-}
-
-animate();
-
-var scrollToTopBtn = document.querySelector(".scrollToTopBtn");
-var rootElement = document.documentElement;
-
-function handleScroll() {
-  // Do something on scroll
-  var scrollTotal = rootElement.scrollHeight - rootElement.clientHeight;
-  if (rootElement.scrollTop / scrollTotal > 0.6) {
-    // Show button
-    scrollToTopBtn.classList.add("showBtn");
-  } else {
-    // Hide button
-    scrollToTopBtn.classList.remove("showBtn");
-  }
-}
-
-function scrollToTop() {
-  // Scroll to top logic
-  rootElement.scrollTo({
-    top: 0,
-    behavior: "smooth"
-  });
-}
-scrollToTopBtn.addEventListener("click", scrollToTop);
-document.addEventListener("scroll", handleScroll);
-
-const toggle = document.querySelector('.toggle input')
-
-toggle.addEventListener('click', () => {
-  
-
-  if(bgcolor === 0xffffff){
-      bgcolor = 0x17202A;
-      ambientLight.color.setHex( bgcolor );
-
-  }else{
-      bgcolor = 0xffffff;
-      ambientLight.color.setHex( bgcolor );
-  }
-    //const onOff = toggle.parentNode.querySelector('.onoff')
-    //onOff.textContent = toggle.checked ? 'ON' : 'OFF'
-    //onOff.textContent = toggle.checked ? ambientLight = new THREE.AmbientLight(0xffffff) : ambientLight = new THREE.AmbientLight(0x17202A)
+    canvas: document.querySelector('.webgl'),
+    preserveDrawingBuffer: true
 })
 
-// Hovercraft Image changes
-const hov_images = ["hovpic.png", "hovpic2.png", "Hover_Vid.mp4"];
-let hov_currentImage = 0;
+renderer.setSize(window.innerWidth, window.innerHeight)
+renderer.setPixelRatio(window.devicePixelRatio)
 
-function changeHImage() {
-  const hov_image = document.getElementById("hov_Images");
-  currentImage = (currentImage + 1) % hov_images.length;
-  hov_image.src = hov_images[currentImage];
+
+//^ -------------------------------------------
+//* -------------ScreenShot--------------------
+
+
+document.querySelector('.capture').addEventListener('click', saveAsImage)
+
+function saveAsImage() {
+    
+        let strMime = "image/jpeg"
+        let imgData = renderer.domElement.toDataURL(strMime)
+
+        saveFile(imgData.replace(strMime), "P L A N E T.jpg")
 }
 
-const hov_image = document.getElementById("hov_Images");
-hov_image.addEventListener("click", changeHImage);
+let saveFile = function (strData, filename) {
 
+    let link = document.createElement('a')
 
-// Scratch Image changes
-const simages = ["sp-game.png", "box-game.png", "2020-sf.PNG"];
-let scurrentImage = 0;
+    if (typeof link.download === 'string') {
 
-function changeSImage() {
-  const simage = document.getElementById("scratchImages");
-  currentImage = (currentImage + 1) % simages.length;
-  simage.src = simages[currentImage];
-}
-
-const simage = document.getElementById("scratchImages");
-simage.addEventListener("click", changeSImage);
-
-// Traffic Image changes
-const images = ["traffic.png", "traffic2.PNG", "traffic3.PNG"];
-let currentImage = 0;
-
-function changeImage() {
-  const image = document.getElementById("image");
-  currentImage = (currentImage + 1) % images.length;
-  image.src = images[currentImage];
-}
-
-const image = document.getElementById("image");
-image.addEventListener("click", changeImage);
-
-//Art Gallery
-const artImages = document.querySelectorAll(".art_image");
-
-artImages.forEach(artImage => {
-  artImage.addEventListener("click", function() {
-    const img = this.querySelector("img");
-    if (img.classList.contains("upright")) {
-      img.classList.remove("upright");
-      console.log("first")
-    } else {
-      img.classList.add("upright");
-      console.log("second")
-
+        document.body.appendChild(link); //!Firefox requires the link to be in the body
+        link.download = filename
+        link.href = strData
+        link.click();
+        document.body.removeChild(link); //!remove the link when done
     }
-  });
-});
-
-
-
-// Typing Animation
-var TxtType = function(el, toRotate, period) {
-  this.toRotate = toRotate;
-  this.el = el;
-  this.loopNum = 0;
-  this.period = parseInt(period, 10) || 2000;
-  this.txt = '';
-  this.tick();
-  this.isDeleting = false;
-};
-
-TxtType.prototype.tick = function() {
-  var i = this.loopNum % this.toRotate.length;
-  var fullTxt = this.toRotate[i];
-
-  if (this.isDeleting) {
-  this.txt = fullTxt.substring(0, this.txt.length - 1);
-  } else {
-  this.txt = fullTxt.substring(0, this.txt.length + 1);
-  }
-
-  this.el.innerHTML = '<span class="wrap">'+this.txt+'</span><span class="cursor">|</span>';
-
-  var that = this;
-  var delta = 200 - Math.random() * 100;
-
-  if (this.isDeleting) { delta /= 2; }
-
-  if (!this.isDeleting && this.txt === fullTxt) {
-  delta = this.period;
-  this.isDeleting = true;
-  } else if (this.isDeleting && this.txt === '') {
-  this.isDeleting = false;
-  this.loopNum++;
-  delta = 500;
-  }
-
-  setTimeout(function() {
-  that.tick();
-  }, delta);
-};
-
-
-window.onload = function() {
-  document.getElementById("loading-screen").style.display = "none";
-  var elements = document.getElementsByClassName('typewrite');
-  for (var i=0; i<elements.length; i++) {
-      var toRotate = elements[i].getAttribute('data-type');
-      var period = elements[i].getAttribute('data-period');
-      if (toRotate) {
-        new TxtType(elements[i], JSON.parse(toRotate), period);
-      }
-  }
-};
-// Scroll out Laptop Boy
-const bimage = document.getElementById("boylaptop");
-
-window.addEventListener("scroll", () => {
-    const scrollPos = window.scrollY;
-    const windowHeight = window.innerHeight;
-
-    bimage.style.opacity = 1 - (scrollPos/windowHeight)*4;
-});
-
-// Dice
-let randomDiceNumber;
-const dice =  document.getElementById("dice");
-
-const randomDice = () => {
-  randomDiceNumber = Math.floor(Math.random() * 6) + 1;
-  rollDice(randomDiceNumber);
+    else {
+        location.replace(uri);
+    }
 }
 
-const rollDice = random => {
-  dice.style.animation = 'rolling 4s';
-  
-  switch (random) {
-    case 1:
-      dice.style.transform = 'rotateX(0deg) rotateY(0deg)';
-      break;
-    case 6:
-      dice.style.transform = 'rotateX(180deg) rotateY(0deg)';
-      break;
-    case 2:
-      dice.style.transform = 'rotateX(-90deg) rotateY(0deg)';
-      break;
-    case 5:
-      dice.style.transform = 'rotateX(90deg) rotateY(0deg)';
-      break;
-    case 3:
-      dice.style.transform = 'rotateX(0deg) rotateY(90deg)';
-      break;
-    case 4:
-      dice.style.transform = 'rotateX(0deg) rotateY(-90deg)';
-      break;
-    default:
-        break;
-  }
+//? https://codepen.io/shivasaxena/pen/QEzrrv
+//^ -------------------------------------------
+
+
+
+//* ------------Controller----------------
+
+const controls = new OrbitControls(camera, renderer.domElement)
+controls.enableDamping = true
+// controls.enablePan = false
+// controls.enableZoom = false
+controls.autoRotate = true
+controls.autoRotateSpeed = 0.2
+
+
+//* -----------Responsive-------------------
+
+window.addEventListener('resize', () => {
+
+    //^ Update Sizes ----
+    sizes.width = window.innerWidth
+    sizes.height = window.innerHeight
+
+    //^ Update Camera ----
+    camera.updateProjectionMatrix()
+    camera.aspect = sizes.width / sizes.height
+    renderer.setSize(sizes.width, sizes.height)
+})
+
+
+//* ------------Lights-----------------
+
+const pointLit = new THREE.PointLight(0xffffff)
+pointLit.position.set(15, 15, 15)
+const ambLight = new THREE.AmbientLight(0xffffff)
+ambLight.intensity = 0.05
+scene.add(pointLit, ambLight)
+
+// scene.background = new THREE.TextureLoader().load('public/stary_skyTexture.jpg')
+
+
+//* ------------Materials----------------
+
+const planetTexture = new THREE.TextureLoader().load('/Jupiter_Map.jpg')
+const ringTexture = new THREE.TextureLoader().load('/2k_jupiter.jpg')
+
+
+//* -----------3D Objects--------------
+
+const planet = new THREE.Mesh(
+    new THREE.SphereGeometry(3, 80, 64),
+    new THREE.MeshStandardMaterial({
+        map: planetTexture
+    })
+)
+planet.rotation.y = 2
+scene.add(planet)
+
+
+const geometry = new THREE.TorusGeometry(4, 0.3, 2, 100)
+const material = new THREE.MeshBasicMaterial({ map: ringTexture })
+const ring = new THREE.Mesh(geometry, material)
+ring.rotation.x = 2
+ring.rotation.y = 3
+scene.add(ring)
+
+
+function addStar() {
+    const geometry = new THREE.SphereGeometry(0.3, 10, 10)
+    const material = new THREE.MeshBasicMaterial({ color: '#ffffff' })
+    const star = new THREE.Mesh(geometry, material)
+
+    const [x, y, z] = Array(3).fill().map(() => THREE.MathUtils.randFloatSpread(2000))
+
+    star.position.set(x, y, z)
+    scene.add(star)
 }
 
-dice.addEventListener('click', randomDice);
-dice.addEventListener('animationend', () => {
-  dice.style.animation = '';
+Array(10000).fill().forEach(addStar)
+
+//* -------------------------------------
+
+
+const listener = new THREE.AudioListener();
+camera.add(listener)
+
+const sound = new THREE.Audio( listener );
+
+const audioLoader = new THREE.AudioLoader();
+audioLoader.load( 'sounds/SpaceAmbientmusic.ogg', 
+(buffer)=>{
+    sound.setBuffer(buffer)
+    sound.setVolume(0.05)
+    sound.setLoop(true)
+    sound.play()
 });
+
+
+//* -----------Helpers-------------------
+
+// const lightHelper = new THREE.PointLightHelper(pointLit)
+// const gridHelper = new THREE.GridHelper(200, 50)
+// scene.add(lightHelper, gridHelper)
+
+
+//* ---------Animation-------------------
+
+const animPlanet = gsap.timeline({ defaults: { duration: 10 } })
+animPlanet.delay(4).timeScale(0.5).fromTo(planet.scale, { z: 6, x: 6, y: 6 }, { z: 1, x: 1, y: 1 })
+
+
+const animRing = gsap.timeline({ defaults: { duration: 10 } })
+animRing.delay(4).timeScale(0.5).fromTo(ring.scale, { z: 6, x: 6, y: 6 }, { z: 1, x: 1, y: 1 })
+
+
+const animTxt = gsap.timeline({ defaults: { duration: 3 } })
+animTxt.fromTo('.header', { y: '-100%' }, { y: '0%' })
+animTxt.fromTo('.footer', { y: '70%' }, { y: '0%' })
+
+
+const opacity = gsap.timeline({ defaults: { duration: 2 } })
+opacity.delay(1.2).timeScale(0.5).fromTo('.opacity', { opacity: 0 }, { opacity: 1 })
+
+const opacity2 = gsap.timeline({ defaults: { duration: 1 } })
+opacity2.delay(0.5).timeScale(0.5).fromTo('.header', { opacity: 0 }, { opacity: 1 })
+opacity2.delay(0.5).timeScale(0.5).fromTo('.footer', { opacity: 0 }, { opacity: 1 })
+
+
+//* ----------Recursion------------------
+
+function loop() {
+    controls.update()
+
+    ring.rotation.z += 0.01
+    planet.rotation.y -= 0.002
+
+
+    renderer.render(scene, camera)
+    requestAnimationFrame(loop)
+}
+loop()
