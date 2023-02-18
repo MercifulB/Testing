@@ -78,6 +78,7 @@ const nig = new THREE.Mesh(
   new THREE.BoxBufferGeometry(3, 3, 3, 10, 10, 10),
   new THREE.MeshBasicMaterial( { map: nigTexture } )
 );
+nig.name = "nig";
 
 // My logo
 const circleTexture = new THREE.TextureLoader().load('Icon.svg');
@@ -214,18 +215,20 @@ function scrollToTop() {
 scrollToTopBtn.addEventListener("click", scrollToTop);
 document.addEventListener("scroll", handleScroll);
 
-const toggle = document.querySelector('.toggle input')
+// Night / Day Mode button 
+const toggle = document.querySelector('.toggle input');
 
 toggle.addEventListener('click', () => {
-  
 
-  if(bgcolor === 0xffffff){
-      bgcolor = 0x17202A;
-      ambientLight.color.setHex( bgcolor );
+  if(bgcolor === 0xffffff) {
+    bgcolor = 0x17202A;
+    nig.material.map = new THREE.TextureLoader().load('head_pro_night.png');
+    ambientLight.color.setHex(bgcolor);
 
   }else{
-      bgcolor = 0xffffff;
-      ambientLight.color.setHex( bgcolor );
+    bgcolor = 0xffffff;
+    nig.material.map = new THREE.TextureLoader().load('head_pro.png');
+    ambientLight.color.setHex(bgcolor);
   }
     //const onOff = toggle.parentNode.querySelector('.onoff')
     //onOff.textContent = toggle.checked ? 'ON' : 'OFF'
