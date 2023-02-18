@@ -123,24 +123,6 @@ const gltfLoader = new GLTFLoader();
 
 const objectsDistance = 2
 
-// Hovercraft 
-/*
-gltfLoader.load('siteHover.gltf', (gltfScene)=>{
-  Object3D.matrixAutoUpdate = false 
-
-  gltfScene.scene.position.y = 0;
-  gltfScene.scene.position.x = 0;
-  gltfScene.scene.position.z = 0;
-
-  gltfScene.scene.rotation.x = 0;
-  gltfScene.scene.rotation.y = 10;
-  gltfScene.scene.rotation.z = 0;
-
-  gltfScene.scene.scale.set(3, 3, 3);
-  gltfScene.scene.updateMatrix();
-  scene.add(gltfScene.scene);
-});
-*/
 // Microscope
 
 gltfLoader.load('.microscope.gltf', (gltfScene)=>{
@@ -157,47 +139,6 @@ gltfLoader.load('.microscope.gltf', (gltfScene)=>{
   gltfScene.scene.scale.set(0.025, 0.025, 0.025);
   scene.add(gltfScene.scene);
 });
-
-
-//Hovercraft
-/*
-var modelGroup = new THREE.Group();
-
-gltfLoader.load('siteHover.gltf', (gltfScene)=>{
-  gltfScene.scene.position.y = -100;
-  gltfScene.scene.position.x = 0;
-  gltfScene.scene.position.z = 0;
-
-  gltfScene.scene.rotation.x = 5;
-  gltfScene.scene.rotation.y = 60;
-  gltfScene.scene.rotation.z = 30;
-
-  gltfScene.scene.scale.set(0.1, 0.1, 0.1);
-  modelGroup.add(gltfScene.scene);
-  scene.add(modelGroup, pointLight);
-});
-
-window.addEventListener("scroll", function(){
-  modelGroup.position.y = window.pageYOffset/10;
-});*/
-
-/*
-//Rocket
-gltfLoader.load('rocky.gltf', (gltfScene)=>{
-  //loadedModel = gltfScene;
-  //gltfScene.scene.rotation.y = Math.PI / 8;
-  gltfScene.scene.position.y = 0;
-  gltfScene.scene.position.x = 0;
-  gltfScene.scene.position.z = 0;
-
-  gltfScene.scene.rotation.x = 5;
-  gltfScene.scene.rotation.y = 25;
-  gltfScene.scene.rotation.z = 30;
-
-  gltfScene.scene.scale.set(10, 10, 10);
-
-  scene.add(gltfScene.scene, pointLight);
-});*/
 
 // Scroll Animation
 function moveCamera() {
@@ -258,8 +199,6 @@ function handleScroll() {
     scrollToTopBtn.classList.remove("showBtn");
   }
 }
-
-
 
 function scrollToTop() {
   // Scroll to top logic
@@ -452,23 +391,3 @@ dice.addEventListener('click', randomDice);
 dice.addEventListener('animationend', () => {
   dice.style.animation = '';
 });
-
-
-
-/*
-// When the user scrolls down 80px from the top of the document, resize the navbar's padding and the logo's font size
-window.onscroll = function() {scrollFunction()};
-
-function scrollFunction() {
-  if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
-    document.getElementById("navbar").style.padding = "0px 5px";
-    document.getElementById("logo").style.fontSize = "0px";
-  } else {
-    document.getElementById("navbar").style.padding = "20px 10px";
-    document.getElementById("logo").style.fontSize = "35px";
-  }
-}*/
-
-/*$(window).on('beforeunload', function() {
-  $(window).scrollTop(0);
-});*/
