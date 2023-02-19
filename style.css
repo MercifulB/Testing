@@ -246,7 +246,7 @@ main {
 }
 
 h1, h2, h3, blockquote {
-  font-family: sans-serif, veranda;
+  font-family: sans-serif, Veranda;
   font-weight: 600;
   font-style: normal;
   
@@ -354,6 +354,7 @@ canvas {
     flex-wrap: wrap;
     background-color: rgba(0, 0, 0, 0.712);
   }
+  
 
   .nobg {
     position: absolute;
