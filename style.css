@@ -308,6 +308,13 @@ canvas {
     display: inline;
     line-height: 1;
   }
+  sub h2 {
+    color: white;
+    font-size: 2rem;
+    display: inline;
+    line-height: 2;
+    
+  }
 
   .lleft {
     grid-column: 6 / 12;
