@@ -12,7 +12,9 @@
   height: 350px;
   border-radius: 36px;
   overflow: hidden;
-  margin: 25px;
+  margin: 2.3%;
+  margin-top: 1%;
+  margin-bottom: 0%;
 }
 
 .card .card-bg {
