@@ -343,7 +343,7 @@ canvas {
   .gal {
     grid-column: 2 / 12;
     padding: 1rem;
-    height: 1200px;
+    height: 100%;
     background: var(--dark-bg);
     font-size: 1.25rem;
     line-height: 1.5;
@@ -353,8 +353,8 @@ canvas {
     display: flex;
     flex-wrap: wrap;
     background-color: rgba(0, 0, 0, 0.712);
+    justify-content: center;
   }
-  
 
   .nobg {
     position: absolute;
