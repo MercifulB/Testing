@@ -356,6 +356,38 @@ canvas {
     justify-content: center;
   }
 
+  .ach_holder {
+    grid-column: 2 / 12;
+    padding: 1rem;
+    background-color: rgba(0, 0, 0, 0);
+    display: flex;
+    flex-wrap: wrap;
+    backdrop-filter: none;
+    margin-top: 1%;
+  }
+  .achiev {
+    grid-column: 2 / 5;
+    height: 10rem;
+    width: 350px;
+    padding: 1rem;
+    background: rgba(0, 0, 0, 0.789);
+    font-size: 1.25rem;
+    line-height: 1.5;
+    margin-top: 10px;
+    margin-bottom: 100px;
+    text-align: center;
+    backdrop-filter: invert(90%);
+    justify-content: center;
+    margin: 1%;
+  }
+
+  .achiev h3 {
+    font-weight: normal;
+    margin-bottom: 0px;
+    margin-top: 5px;
+  }
+  
+
   .nobg {
     position: absolute;
     top: 1.5%;
