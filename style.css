@@ -96,6 +96,7 @@ input:checked + .slider:before {
   transform: translateY(0);
 }
 
+
 /* Create a sticky/fixed navbar */
 #navbar {
   overflow: hidden;
