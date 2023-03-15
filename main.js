@@ -25,8 +25,6 @@ renderer.setPixelRatio( window.devicePixelRatio );
 renderer.setSize( window.innerWidth, window.innerHeight );
 camera.position.setZ(30);
 
-
-
 renderer.render( scene, camera );
 // Torus
 const geometry = new THREE.TorusGeometry( 10, 2, 16, 100 )
@@ -460,7 +458,6 @@ dice.addEventListener('click', randomDice);
 dice.addEventListener('animationend', () => {
   dice.style.animation = '';
 });
-
 
 
 /*
