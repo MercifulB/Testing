@@ -96,7 +96,6 @@ input:checked + .slider:before {
   transform: translateY(0);
 }
 
-
 /* Create a sticky/fixed navbar */
 #navbar {
   overflow: hidden;
@@ -296,11 +295,12 @@ canvas {
   }
 
   sub {
-    margin: 500px;
+    margin: 0 auto;
     padding: 0;
-    grid-column: 2 / span 12;
+    grid-column: 2 /  12;
     margin-bottom: 0;
     margin-top: 10px;
+    justify-content: center;
   }
   sub p {
     color: white;
@@ -313,7 +313,8 @@ canvas {
     font-size: 2rem;
     display: inline;
     line-height: 2;
-    
+    justify-content: center;
+
   }
 
   .lleft {
@@ -342,49 +343,53 @@ canvas {
   }
   .gal {
     grid-column: 2 / 12;
-    padding: 1rem;
-    height: 100%;
-    background: var(--dark-bg);
-    font-size: 1.25rem;
-    line-height: 1.5;
-    margin-top: 40px;
-    margin-bottom: 60px;
-    margin-left: 0px;
-    display: flex;
-    flex-wrap: wrap;
+    width: 98%;
+    padding-top: 1%;
     background-color: rgba(0, 0, 0, 0.712);
+    display: inline-flex;
+    flex-wrap: wrap;
+    backdrop-filter: none;
+    margin-top: 1%;
     justify-content: center;
+    position: relative;
+    margin: 0 auto;
   }
 
   .ach_holder {
     grid-column: 2 / 12;
-    padding: 1rem;
+    width: 95%;
+    padding: 1%;
     background-color: rgba(0, 0, 0, 0);
-    display: flex;
+    display: inline-flex;
     flex-wrap: wrap;
     backdrop-filter: none;
     margin-top: 1%;
+    justify-content: center;
+    position: relative;
+    margin: 0 auto;
   }
+  
   .achiev {
     grid-column: 2 / 5;
-    height: 10rem;
-    width: 350px;
+    height: auto;
+    width: 28%;
     padding: 1rem;
     background: rgba(0, 0, 0, 0.789);
     font-size: 1.25rem;
     line-height: 1.5;
-    margin-top: 10px;
-    margin-bottom: 100px;
+    /* margin-top: 10px;
+    margin-bottom: 100px; */
     text-align: center;
-    backdrop-filter: invert(90%);
+    backdrop-filter: invert(95%);
     justify-content: center;
-    margin: 1%;
+    margin: 0.8%;
   }
 
   .achiev h3 {
     font-weight: normal;
     margin-bottom: 0px;
     margin-top: 5px;
+    font-size: 20px;
   }
   
 
