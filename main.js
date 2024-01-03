@@ -19,6 +19,14 @@ const renderer = new THREE.WebGLRenderer({
   canvas: document.querySelector('#bg'),
 });
 
+// Make sure the project is responsive based on window resizing
+window.addEventListener('resize', () => {
+  renderer.setSize(window.innerWidth,window.innerHeight);
+  camera.aspect = window.innerWidth / window.innerHeight;
+
+  camera.updateProjectionMatrix();
+})
+
 var bgcolor = 0xffffff;
 
 renderer.setPixelRatio( window.devicePixelRatio );
