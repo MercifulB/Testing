@@ -7,6 +7,11 @@ html{
   position: relative;
 }
 
+body {
+  overflow-x: hidden;
+}
+
+
 .toggle input {
   position: absolute;
   opacity: 0;
@@ -634,4 +639,22 @@ img {
   .col-10 {width: 83.33%;}
   .col-11 {width: 91.66%;}
   .col-12 {width: 100%;}
+}
+
+/* New Scroll Bar */
+/* width */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  border-radius: 0px;
+  background: rgb(0, 0, 0);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.201);
+  border-radius: 3px;
 }
