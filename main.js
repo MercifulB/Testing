@@ -35,12 +35,13 @@ camera.position.setZ(30);
 
 renderer.render( scene, camera );
 // Torus
-const geometry = new THREE.TorusGeometry( 10, 2, 16, 100 )
-const material = new THREE.MeshStandardMaterial( { color: 0xFF6347,  } );
+const geometry = new THREE.TorusGeometry( 10, 2, 16, 50 )
+const material = new THREE.MeshStandardMaterial( { color: 0xffffff,  wireframe: true } );
 const torus = new THREE.Mesh( geometry, material );
+
 // Pentagon
-const geometry2 = new THREE.TorusGeometry( 5, 1, 20, 5 )
-const material2 = new THREE.MeshStandardMaterial( { color: 0x0095DD,  } );
+const geometry2 = new THREE.TorusGeometry( 5, 1, 10, 5 )
+const material2 = new THREE.MeshStandardMaterial( { color: 0x0095DD, wireframe: true } );
 const torus2 = new THREE.Mesh( geometry2, material2 );
 torus2.position.z = 0;
 torus2.position.x = 40;
@@ -416,6 +417,7 @@ window.onload = function() {
       }
   }
 };
+
 // Scroll out Laptop Boy
 const bimage = document.getElementById("boylaptop");
 
