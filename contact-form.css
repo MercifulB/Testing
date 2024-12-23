@@ -4,7 +4,7 @@
 
 .fcf-body {
     margin: 0;
-    font-family: brandon-grotesque, sans-serif;
+    font-family: 'SF Pro', brandon-grotesque, sans-serif;
     font-size: 1.1rem;
     font-weight: 400;
     line-height: 1.5;
@@ -14,7 +14,7 @@
     padding: 30px;
     padding-bottom: 10px;
     padding-top: 10px;
-    border: 1px solid #0479ee;
+    border: none;
     border-radius: 1rem;
     max-width: 100%;
     
@@ -61,7 +61,7 @@ select.fcf-form-control[size], select.fcf-form-control[multiple] {
 }
 
 textarea.fcf-form-control {
-    font-family: -apple-system, Arial, sans-serif;
+    font-family: 'SF Pro', Arial, sans-serif;
     height: auto;
 }
 
@@ -77,12 +77,12 @@ label.fcf-label {
 }
 
 .fcf-credit a {
-    color: #047ff9;
+    color: whitesmoke;
     text-decoration: underline;
 }
 
 .fcf-credit a:hover {
-    color: #02458d;
+    color: rgba(245, 245, 245, 0.492);
     text-decoration: underline;
 }
 
@@ -124,21 +124,21 @@ label.fcf-label {
 
 .fcf-btn-primary {
     color: #fff;
-    background-color: #007bff;
-    border-color: #007bff;
+    border-color: whitesmoke;
 }
+
 
 .fcf-btn-primary:hover {
     color: #fff;
-    background-color: #0069d9;
-    border-color: #0062cc;
+    background-color: rgba(255, 255, 255, 0.186);
+    border-color: whitesmoke;
 }
 
 .fcf-btn-primary:focus, .fcf-btn-primary.focus {
     color: #fff;
-    background-color: #0069d9;
-    border-color: #0062cc;
-    box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5);
+    background-color: black;
+    border-color: whitesmoke;
+    box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
 }
 
 .fcf-btn-lg, .fcf-btn-group-lg>.fcf-btn {
