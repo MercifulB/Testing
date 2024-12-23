@@ -49,27 +49,6 @@ torus2.position.y = 10;
 
 scene.add(torus, torus2)
 
-// UW logo
-const UWTexture = new THREE.TextureLoader().load('University_of_Waterloo_seal.png', (texture) => {
-  texture.wrapS = THREE.RepeatWrapping; // Optional: Adjust texture wrapping
-  texture.wrapT = THREE.RepeatWrapping;
-});
-
-const UWSeal = new THREE.Mesh(
-  new THREE.CylinderGeometry(4, 4, .5, 64),
-  new THREE.MeshBasicMaterial({ map: UWTexture }) // Assign the texture to the material
-);
-
-// Set position
-UWSeal.rotation.x = Math.PI / 3.5; // Rotate 90 degrees along the X-axis
-UWSeal.rotation.y = Math.PI / 3;
-UWSeal.position.set(20, -5, -10);
-scene.add(UWSeal);
-
-
-
-
-
 const pointLight = new THREE.PointLight(0xffffff)
 pointLight.position.set(5,5,5)
 
@@ -249,11 +228,6 @@ function moveCamera() {
 
   nig.rotation.x += 0.01;
   nig.rotation.z += 0.01;
-
-  //UWSeal.rotation.y += 0.01;
-  //UWSeal.rotation.x += 0.01;
-  UWSeal.rotation.z += 0.01;
-
 
   //orth.position.x += -0.5;
   
@@ -513,4 +487,3 @@ function scrollFunction() {
 /*$(window).on('beforeunload', function() {
   $(window).scrollTop(0);
 });*/
-
