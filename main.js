@@ -179,7 +179,7 @@ gltfLoader.load('siteHover.gltf', (gltfScene)=>{
 */
 // Microscope
 
-gltfLoader.load('microscope.gltf', (gltfScene)=>{
+/*gltfLoader.load('microscope.gltf', (gltfScene)=>{
   //loadedModel = gltfScene;
   //gltfScene.scene.rotation.y = Math.PI / 8;
   gltfScene.scene.position.y = 0;
@@ -192,7 +192,7 @@ gltfLoader.load('microscope.gltf', (gltfScene)=>{
 
   gltfScene.scene.scale.set(0.025, 0.025, 0.025);
   scene.add(gltfScene.scene);
-});
+});*/
 
 
 //Hovercraft
