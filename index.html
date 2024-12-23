@@ -1,9 +1,4 @@
 <!DOCTYPE html>
-<div id="loading-screen">
-  <img id="loading-image" src="./public/o_bLogo.svg" alt="Loading">
-  <div id="loading-bar"></div>
-  <p style="color:whitesmoke; font-size:2rem; margin-top: 1rem">Loading...</p>
-</div>
 
 <html lang="en">
   <head>
@@ -15,25 +10,27 @@
     <title>Merciful Bolaji</title>
    
 
-    
+    <div id="loading-screen">
+      <img id="loading-image" src="./public/o_bLogo.svg" alt="Loading">
+      <div id="loading-bar"></div>
+      <p style="color:333; font-size:2rem; margin-top: 1rem">Loading...</p>
+    </div>
   
   </head>
 
   <div id="navbar">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:100" rel="stylesheet">
     
-    <a href="" onclick="window.location.reload(true)" id="logo" style="text-decoration: none; color: rgba(255, 255, 255, 0.429); font-size: 1.5rem; font-weight: normal; margin-left: 5rem; margin-top: 7px; display: inline-block;">
-      Merciful Bolaji
-    </a>
-        <!--<h2 style= "line-height: 2.1rem; color: white; font-size: 1.4rem; margin-left: 60px; margin-bottom: -40px; margin-top: 10px; font-family: 'SF Pro Black'; font-weight:300 ">MERCIFUL BOLAJI</h2>-->
+    <a href="" onclick="window.location.reload(true)" id="logo"> <img src="./public/o_bLogo.svg" alt="Merciful's Logo" style="width:35;height:35px; margin-left: 5px; margin-top: 3px"></a> 
+    <!--<h2 style= "line-height: 2.1rem; color: white; font-size: 1.4rem; margin-left: 60px; margin-bottom: -40px; margin-top: 10px; font-family: 'SF Pro Black'; font-weight:300 ">MERCIFUL BOLAJI</h2>-->
     <div id="navbar-right">
       
-      <a href="#WorkExperience">💼 Experience</a>
+      <a href="#WorkExperience">💼 Work Experience</a>
       <a href="#Projects">👩🏽‍🚀 Projects</a>      
-      <a href="#OtherWorks">🧩 Other Works</a>
+      <a href="#Extracurriculars">🎒 Extracurriculars</a>
       <a href="#Skills">🛠️ Skills</a>
       <a href="#Achievements">🏆 Achievements</a>
-      <a href="#Contact">📧 Contact</a>
+      <a href="#Contact">✉️ Contact</a>
       <label class="toggle">
         <span class="onoff"></span>
         <input type="checkbox" />
@@ -50,159 +47,88 @@
       <header>
         <h1 class="gradient-text">Merciful Bolaji</h1>
         <div class="typewrite" data-period="2000" style="font-family:'Courier New', monospace" data-type='[
-            "I&#39;m a Full-Stack Dev.",
-            "I&#39;m a Problem Solver.",
-            "I am Creative.",
-            "I am an Innovator.",
-            "I am a Team Player."
-            ]'>
-      
+          "I&#39;m a Full-Stack Developer.",
+          "I&#39;m a Problem Solver.",
+          "I am Creative.",
+          "I am an Innovator.",
+          "I am a Team Player."
+          ]'>
+
           <span class="wrap"> </span> <span class="cursor">|</span>
         </div>        
-        <p>🚀 Welcome to my website!</p>
-      
-        <!-- Social Media Links -->
-        <div class="social-links">
-          <a href="https://www.linkedin.com/in/mercifulb/" target="_blank" aria-label="LinkedIn">
-            <img src="public/linkedin-logo.png" alt="LinkedIn Logo">
-          </a>
-          <a href="https://github.com/MercifulB" target="_blank" aria-label="GitHub">
-            <img src="public/github-logo.png" alt="GitHub Logo">
-          </a>
-          <a href="mailto:merciful.bolaji@gmail.com" aria-label="Email">
-            <img src="public/gmail-logo.png" alt="Gmail Logo">
-          </a>
-        </div>
+        <p>🚀 Welcome to my website! 👋</p>
       </header>
-      
 
     <div class="nobg">
         <img id=boylaptop src="./public/boylaptop.svg" alt="Boy astronaut using laptop" width="500" height="400">
     </div>
 
     <blockquote>
-    </blockquote>      
-    <blockquote>  
+          
     </blockquote>
 
-    <section class="intro">
-      <h3>
-        👋🏽 Hi! My name is Merciful. I’m a second-year Computer Science student 🎓 @ the University of Waterloo passionate about software development and business.
-        When I'm not coding, you can find me at the gym, drawing, reading, or listening to tech podcasts.
-        Explore my experiences, skills, and achievements below!
-      </h3>
-    </section>
+    <section_ed>
+      <h2>🎓 Education </h2>
+   
+      <p style="display: flex; align-items: center;">
+        <img src="./public/University_of_Waterloo_seal.png" alt="UWaterloo Logo" style="max-width: 100px;">
+        <span style="margin-left: 10px; font-size: 1.6rem;">University of Waterloo Bachelors of Computer Science Co-op | 2023 - 2028 </span>
+      </p>
     
+    </section_ed>
 
-    <sub style="margin-top: 3rem; margin-bottom: -5rem;">
-      <h2 id ="WorkExperience"> 💼 Experience </h2>
-    </sub>
-      <section class="lleft">
-        
-        <h2 style="font-weight: 200;">Product Support Analyst | D2L Brightspace</h2>
-        <h3 style="font-weight: 200; margin-top: 0;"> May 2024 - August 2024</h3>
+    <section class="lleft">
+        <h2 id="WorkExperience">💼 Work Experience</h2>
+        <h3>🖥️ Coding Instructor | Sept. 2023 - Present 
+          <a href="https://datawiz.ca/" target="_blank"> <img src="/public/datawiz-logo.png" 
+            alt="DataWiz Logo" style="width: 20%; height: auto; margin-bottom: -13px;"></a> </h3>
+            <h4>&nbsp;&nbsp;&nbsp;&nbsp;Web Development Instructor</h4>
         <ul>
-            <li>Provided technical assistance to Brightspace clients, achieving 100% customer satisfaction by ensuring efficient issue resolution and a seamless user experience.</li>
-            <li>Leveraged SQL, Kibana, HTML, JavaScript, and API services to resolve 80+ complex support cases, with a 6X increase in case resolution efficiency.</li>
-            <li>Diagnosed and eliminated 50+ critical software bugs, achieving a 30% reduction in client-reported issues.</li>
+            <li>Igniting creativity through dynamic and engaging instruction that inspires innovative minds.</li>
+            <li>Expertly employing full-stack web development technologies to craft modern, dynamic web applications:
+                HTML, CSS, JavaScript, React, Node.js, SQL.</li>
+            <li>Designing comprehensive curriculum to assess student progress using key metrics.</li>
+            <li>Crafting engaging lessons and assignments to enhance practical understanding.</li>
         </ul>
-        <div class="image-container">
-          <a href="https://www.d2l.com/brightspace/" target="_blank">
-            <img src="/public/d2l_brightspace_logo.png" class="img-diagonal-up" alt="d2l brightspace logo"> 
-          </a>
-            
-          <img src="/public/Brightspace devices.png" class="img-straight-right" alt="Brightspace devices">
-          
-            <a href="https://www.d2l.com/blog/fusion-2024-our-learning-transformation-key-takeaways/" target="_blank">
-            <img src="/public/d2l_fusion.png" class="img-diagonal-down" alt="d2l fusion image"></a>
-        </div>
+        <h4>&nbsp;&nbsp;&nbsp;&nbsp;Java Tutor</h4>
+        <ul>
+            <li>Fostering Java proficiency through targeted and personalized tutoring sessions.</li>
+            <li>Guiding students in mastering Java fundamentals and advanced concepts.</li>
+            <li>Creating tailored assessments to reinforce theoretical knowledge with practical application.</li>
+            <li>Providing constructive feedback to facilitate continuous improvement and skill refinement.</li>
+        </ul>
 
-        <div class="tool-logos">
-          <img src="/public/html_logo.png" alt="HTML Logo">
-          <img src="/public/javascript_logo.png" alt="JavaScript Logo">
-          <img src="/public/bs_api_logo.png" alt="API Logo">
-          <img style="width: 4rem" src="/public/sql_logo.png" alt="SQL Logo">
-          <img style="width: 3rem" src="/public/kibana_logo.png" alt="Kibana Logo">
-        </div>
-        </section>
-
-
-        <section_ex>
-          <h2 style="font-weight: 200;"> Java Instructor | DataWiz Academy</h2>
-          <h3 style="font-weight: 200; margin-top: 0;"> Oct. 2023 - Present </h3>
-          <ul>
-              <li>Building students' confidence with Java through personalized tutoring.</li>
-              <li>Boosted student grades by 20% in Gr 12 Ontario CS Course ICS4U</li>
-              <li>Crafting custom assessments and delivering meaningful feedback for continuous practical learning.</li>
-          </ul>
-
-          <h2 style="font-weight: 200;"> Web Dev. Instructor | DataWiz Academy</h2>
-          <h3 style="font-weight: 200; margin-top: 0;"> Sept. 2023 - June 2024 </h3>
-          <ul>
-            <li>Guided students in building modern web apps using Full-Stack technologies; HTML, CSS, JavaScript, React, Node.js, and SQL.</li>
-            <li>Designed comprehensive curriculum to assess student progress using key metrics.</li>
-            <li>Crafted engaging lessons for students of various experience levels.</li>
-          </ul>
-          
-
-          <div class="image-containerR">
-            <a href="https://datawiz.ca/" target="_blank">
-              <img src="/public/datawiz-logo.png" class="img-diagonal-up" alt="DataWiz Logo"> 
-            </a>
-
-          <a href="https://mercifulb.github.io/Switch-Landing-Page/?" target="_blank">
-            <img src="/public/nintendo-switch.png" class="img-straight-right" alt="Nintedo Switch"> 
-          </a>
-          <a href="https://mercifulb.github.io/Jordan-Landing-Page/?" target="_blank">
-            <img src="/public/aj1.png" class="img-diagonal-down" alt="Air Jordan"> 
-          </a>
-
-          
-       </div>
-        <div class="tool-logos">
-          <img style="width: 3.5rem" src="/public/java_logo.png" alt="Java Logo">
-          <img src="/public/html_logo.png" alt="HTML Logo">
-          <img src="/public/javascript_logo.png" alt="JavaScript Logo">
-          <img src="/public/css_logo.png" alt="CSS Logo">
-          <img style="width: 4rem" src="/public/sql_logo.png" alt="SQL Logo">
-          <img src="/public/react_logo.png" alt="React Logo">
-          <img style="width: 4rem" src="/public/node_logo.png" alt="NodeJS Logo">
-        </div>
-        </section_ex>
-
-          <section id="peel-lleft" class="lleft">
-            <h2 style="font-weight: 200;">Coding Camp Leader | Peel District School Board</h2>
-            <h3 style="font-weight: 200; margin-top: 0;">June 2022 - Aug. 2022</h3>
-            <ul>
-                <li>Created and led coding lessons for over 60 participants.</li>
-                <li>Guided students in making Scratch and Python games that integrate hardware technologies like Microbit.</li>
-                <li>Streamlined code and recommended improvements with beginner-friendly explanations.</li>
-            </ul>
-
-            <div class="image-container">
-                <a href="https://www.peelschools.org/" target="_blank">
-                    <img src="/public/pdsb_logo.png" class="img-diagonal-up" alt="PDSB logo">
-                </a>
-                
-                <!-- Embedded Google Slides iframe as a pop-out element -->
-                <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vQSDXWoPPnHpuuaYTsanxN3pOx5lUffLRQLBixj727ki_ZuZi49r1OVjH3XHUuLgfk23grMe9CtRn4A/embed?start=false&loop=false&delayms=3000"
-                        class="img-straight-left" frameborder="0" width="300px" height="300px" allowfullscreen="true"
-                        mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
-                
-                <a href="https://scratch.mit.edu/projects/717003471/" target="_blank">
-                    <img style="left: 25rem; width: 15rem;" src="/public/Boxing_game.png" class="img-diagonal-down" alt="Boxing game">
-                </a>
-                 
-            </div>
-            <div class="tool-logos">
-              <img style="width: 3.5rem" src="/public/python_logo.png" alt="Python Logo">
-              <img src="/public/scratch_logo.png" alt="Scratch Logo">
-              <img style="width: 4rem" src="/public/microbit_logo.png" alt="Microbit Logo">
-            </div>
+        <h3>👨‍💻 Student Coding Camp Leader | July 2022 
+          <a href="https://www.peelschools.org/" target="_blank"> <img src="public/pdsb_logo.png" 
+            alt="PDSB Logo" style="width: 25%; height: auto; margin-bottom: -20px;"></a> </h3>
+        <ul>
+          <li> Assisted with the implementation of coding lessons for 60+ participants </li>
+          <li> Encouraged participants to engage in creative and efficient coding practice </li>
+          <li> Challenged participants to read/write Microbit and Scratch code </li>
+          <li> Debugged code and suggested improvements using appropriate terminology</li>
+          <li> Provided consistent constructive feedback on participants' projects </li>
+      </ul>
+        <br>
+        <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vQSDXWoPPnHpuuaYTsanxN3pOx5lUffLRQLBixj727ki_ZuZi49r1OVjH3XHUuLgfk23grMe9CtRn4A/embed?start=false&loop=false&delayms=3000" frameborder="0" width="100%" height="800px" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+        <br>
+        <h3>🎨 Freelance Illustrator | 2019 - Present</h3>
+        <li> Worked with global clients to create captivating digital and graphite illustrations</li>
+        <li> Developed communication, professionalism, negotiation, and creativity</li>
+        <li> Maintained a 5-Star review by delivering results that exceed expectations  </li>
+        
+        <section class="art-gallery">
+          <div class="art_image art_image_1">
+            <img src="./public/art1.svg" class="img" alt="Epic Tiger Drawing">
+          </div>
+          <div class="art_image art_image_2">
+            <img src="./public/art2.svg" class="img" alt="Epic Man Drawing">
+          </div>
+          <div class="art_image art_image_3">
+            <img src="./public/art3.svg" class="img" alt="Epic Soldier Drawing">
+          </div>
         </section>
       
-
-        <blockquote style="margin: 5rem;" ></blockquote>
+      </section>
 
       <sub>
         <h2 id ="Projects">👩🏽‍🚀 My Projects </h2>
@@ -543,61 +469,28 @@
   
     </section>
   
-    <sub style="margin-top: 3rem; margin-bottom: 3rem;">
-      <h2 id ="OtherWorks">🧩 Other Works </h2>
-    </sub>
 
-    <div class="other-works">
-      <div class="work-item">
-        <div class="video-container">
-          <iframe 
-            src="https://www.youtube.com/embed/sscT851BsZ4" 
-            frameborder="0" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-            allowfullscreen>
-          </iframe>
-        </div>
-        <h3>🏫 MIT Scratcher Stories Interview</h3>
-        <p>
-          Interviewed on my innovative use of art and coding to inspire social change on Scratch and proposed improvements for the platform.
-        </p>
-      </div>
-    
-      <div class="work-item">
-        <div class="video-container" >
-          <video controls poster="public/wolfhacks_title_pic.jpg">
-            <source src="public/wlfhks24.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-        </div>
-        <h3>🧑‍💻 Wolfhacks Judge</h3>
-        <p>
-          Provided mentorship and judged the largest student-led STEM hackathon in the Peel Region.
-        </p>
-      </div>
-    
-      <div class="work-item frame-effect">
-        <img src="public/drawingspic.svg" alt="Student Coding Mentor" class="work-image">
-        <h3>🎨 Freelance Illustrator</h3>
-        <p>
-          Worked with clients globally to create captivating digital and graphite illustrations for their projects.
-        </p>
-      </div>
-    
-      <div class="work-item">
-        <div class="video-container" >
-          <video controls>
-            <source src="public/House Tour.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-        </div>
-        <h3>📐 3D House Design</h3>
-        <p>
-          Designed a home for a client using architectural principles and Revit CAD software.        </p>
-      </div>
-    </div>
-    
-    
+    <section_ex>
+      <h2 id ="Extracurriculars">🎒 Extra-Curricular Activities </h2>
+      <h3>🧪 <a href="https://www.chingsadc.org/" target="_blank">SciTech Activity Committee</a> Lead | 2021 - 2022</h3>
+      <p>
+        Wolfhacks is a student-led non-profit hackathon that promotes STEM education through hands-on workshops and challenges. I worked as a lead on the executive team to organize the event and contact sponsors. I also managed a team to plan and run the Technology division of STEAMWORKS. STEAMWORKS is an annual school event at Chinguacousy with STEAM workshops and activities for junior students.
+      </p>
+      <h3>🎤 Delegate of the Model United Nations Team | 2021</h3>
+      <li>  Discussed and debated current international political and social issues</li>
+      <li>  Investigated stances on global issues and past endeavours to solve them</li>
+      <li>  Developed innovative solutions to persistent international conflicts</li>
+      
+      <h3>🏫 MIT Scratch Team Interview | 2020</h3>
+      <li>  Explained my use of art and coding to inspire social change on Scratch</li>
+      <li>  Proposed new ideas to improve the Scratch programming software</li>
+      <li>  Created projects raising awareness on anti-bullying, racism, and mental health</li>
+      
+      <h3>💻 Student Coding Mentor | 2019</h3>
+      <li>  Demonstrated coding principles and application of them in software projects</li>
+      <li>  Taught students to program Micro:bit circuit boards with hardware extensions</li>
+      <li>  Encouraged creativity and provided valuable feedback</li>
+    </section_ex>
 
       <sub>
         <h2 id ="Skills">🛠️ My Skills</h2>
@@ -608,7 +501,7 @@
       </section>
       
       <sub>
-        <h2 id ="Achievements">🏆 Achievements</h2>
+        <h2 id ="Achievements">🏆 My Achievements</h2>
       </sub>
       <section class="ach_holder">
         <section class="achiev">
@@ -648,8 +541,8 @@
         <div id ="Contact" class="fcf-body">
         
             <div id="fcf-form">
-            <h2 class="fcf-h2"> 
-               Let's Chat! 📧</h2>
+            <h2 class="fcf-h2"> <a href= "mailto:Merciful.bolaji@gmail.com?subject = Feedback&body = Message">
+               Let's Chat! ✉️</a></h2>
         
             <form action="https://formsubmit.co/92b201aa48b07e76b10bb730cccd76ce" method="POST">
                 
@@ -685,7 +578,7 @@
         
       </section>
       <footer style="position: absolute; bottom: 0; left: 0; width: 80%; background-color: #f9f9f900; padding: 10px;">
-        <p style="margin: 0; color: #f9f9f953;"> &copy; 2025 Merciful Bolaji. All rights reserved.</p>
+        <p style="margin: 0; color: #f9f9f998;"> &copy; 2024 Merciful Bolaji. All rights reserved.</p>
       </footer>
     </main>
     
