@@ -103,7 +103,7 @@ scene.background = spaceTexture;
 
 //cube
 
-const nigTexture = new THREE.TextureLoader().load('head_pro.png');
+const nigTexture = new THREE.TextureLoader().load('head_pro.PNG');
 
 const nig = new THREE.Mesh(
   new THREE.BoxBufferGeometry(3, 3, 3, 10, 10, 10),
@@ -154,6 +154,23 @@ scene.add(world);
 
 world.position.z = 40;
 world.position.setX(-10);
+
+
+// Air BALL
+
+// Create a wireframe sphere
+const sphereGeometry = new THREE.SphereGeometry(3, 8, 8);
+const wireframeGeometry = new THREE.WireframeGeometry(sphereGeometry);
+const wireframeMaterial = new THREE.LineBasicMaterial({ color: 0xffffff }); // White color for wireframe
+const ABall = new THREE.LineSegments(wireframeGeometry, wireframeMaterial);
+
+// Add the wireframe sphere to the scene
+scene.add(ABall);
+
+// Position the wireframe sphere
+ABall.position.z = 60;
+ABall.position.setX(10);
+
 
 const gltfLoader = new GLTFLoader();
 
@@ -242,6 +259,9 @@ function moveCamera() {
   world.rotation.x += 0.05;
   world.rotation.y += 0.075;
   world.rotation.z += 0.05;
+
+  ABall.rotation.x -= 0.05;
+
 
   torus2.rotation.x += -0.02;
   torus2.rotation.y += -0.01;
@@ -372,87 +392,6 @@ image.addEventListener("click", changeImage);
 
 
 
-//Art Gallery
-const artImages = document.querySelectorAll(".art_image");
-
-artImages.forEach(artImage => {
-  artImage.addEventListener("click", function() {
-    const img = this.querySelector("img");
-    if (img.classList.contains("upright")) {
-      img.classList.remove("upright");
-      console.log("first")
-    } else {
-      img.classList.add("upright");
-      console.log("second")
-
-    }
-  });
-});
-
-// Typing Animation
-var TxtType = function(el, toRotate, period) {
-  this.toRotate = toRotate;
-  this.el = el;
-  this.loopNum = 0;
-  this.period = parseInt(period, 10) || 2000;
-  this.txt = '';
-  this.tick();
-  this.isDeleting = false;
-};
-
-TxtType.prototype.tick = function() {
-  var i = this.loopNum % this.toRotate.length;
-  var fullTxt = this.toRotate[i];
-
-  if (this.isDeleting) {
-  this.txt = fullTxt.substring(0, this.txt.length - 1);
-  } else {
-  this.txt = fullTxt.substring(0, this.txt.length + 1);
-  }
-
-  this.el.innerHTML = '<span class="wrap">'+this.txt+'</span><span class="cursor">|</span>';
-
-  var that = this;
-  var delta = 200 - Math.random() * 100;
-
-  if (this.isDeleting) { delta /= 2; }
-
-  if (!this.isDeleting && this.txt === fullTxt) {
-  delta = this.period;
-  this.isDeleting = true;
-  } else if (this.isDeleting && this.txt === '') {
-  this.isDeleting = false;
-  this.loopNum++;
-  delta = 500;
-  }
-
-  setTimeout(function() {
-  that.tick();
-  }, delta);
-};
-
-
-window.onload = function() {
-  document.getElementById("loading-screen").style.display = "none";
-  var elements = document.getElementsByClassName('typewrite');
-  for (var i=0; i<elements.length; i++) {
-      var toRotate = elements[i].getAttribute('data-type');
-      var period = elements[i].getAttribute('data-period');
-      if (toRotate) {
-        new TxtType(elements[i], JSON.parse(toRotate), period);
-      }
-  }
-};
-
-// Scroll out Laptop Boy
-const bimage = document.getElementById("boylaptop");
-
-window.addEventListener("scroll", () => {
-    const scrollPos = window.scrollY;
-    const windowHeight = window.innerHeight;
-
-    bimage.style.opacity = 1 - (scrollPos/windowHeight)*4;
-});
 
 // Dice
 let randomDiceNumber;
