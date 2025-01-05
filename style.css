@@ -495,6 +495,8 @@ h1, h2, h3, blockquote {
     margin-bottom: 0;
     margin-top: 10px;
     justify-content: center;
+    display: inline-block; 
+    padding: 10px 20px;
   }
   sub p {
     color: white;
@@ -502,14 +504,17 @@ h1, h2, h3, blockquote {
     display: inline;
     line-height: 1;
   }
-  sub h2 {
+    sub h2 {
     color: white;
     font-size: 2rem;
     display: inline;
     line-height: 2;
     justify-content: center;
+    text-shadow: 0 0 15px rgba(0, 0, 0, 0.596), 
+                    0 0 20px rgba(0, 0, 0, 0.377);
 
   }
+
 
   .lleft {
     position: relative;
