@@ -1,24 +1,19 @@
 <!DOCTYPE html>
 
-
 <html lang="en">
   
-  <head>
+<head>
   
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="./public/o_bLogo.svg" />
-    <link rel="icon" type="image/png" href="./public/o_bLogo.png" />
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="./public/o_bLogo.svg" />
+  <link rel="icon" type="image/png" href="./public/o_bLogo.png" />
 
-    <meta name="viewport" content="width=device-width, initial-scale=4.0" />
-    <title>Merciful Bolaji</title>
-    <div id="loading-screen">
-      <img id="loading-image" src="./public/o_bLogo.svg" alt="Loading">
-      <div id="loading-bar"></div>
-      <p style="color:whitesmoke; font-size:2rem; margin-top: 1rem">Loading...</p>
-    </div>
+  <meta name="viewport" content="width=device-width, initial-scale=4.0" />
+  <title>Merciful Bolaji</title>
 
-    
   
+
+   
   </head>
 
   <div id="navbar">
@@ -31,9 +26,9 @@
     <div id="navbar-right">
       
       <a href="#WorkExperience">💼 Experience</a>
-      <a href="#Projects">👩🏽‍🚀 Projects</a>      
-      <a href="#OtherWorks">🧩 Other Works</a>
+      <a href="#Projects">👩🏽‍🚀 Projects</a>
       <a href="#Skills">🛠️ Skills</a>
+      <a href="#OtherWorks">🧩 Other Works</a>
       <a href="#Achievements">🏆 Achievements</a>
       <a href="#Contact">📧 Contact</a>
       <label class="toggle">
@@ -44,43 +39,116 @@
     </div>
 
   </div>
-  
+    <div id="loading-screen">
+        <img id="loading-image" src="./public/o_bLogo.svg" alt="Loading">
+        <div id="loading-bar"></div>
+        <p style="color:whitesmoke; font-size:2rem; margin-top: 1rem">Loading...</p>
+      </div>
+      <script>
+        window.onload = function() {
+        document.getElementById("loading-screen").style.display = "none";
+        var elements = document.getElementsByClassName('typewrite');
+        for (var i=0; i<elements.length; i++) {
+            var toRotate = elements[i].getAttribute('data-type');
+            var period = elements[i].getAttribute('data-period');
+            if (toRotate) {
+              new TxtType(elements[i], JSON.parse(toRotate), period);
+            }
+        }
+      };
+      </script>
   <body>
+   
+    
     
     <canvas id="bg"></canvas>
+    
     <main>
-      <header>
-        <h1 class="gradient-text">Merciful Bolaji</h1>
-        <div class="typewrite" data-period="2000" style="font-family:'Courier New', monospace" data-type='[
-            "I&#39;m a Full-Stack Dev.",
-            "I&#39;m a Problem Solver.",
-            "I am Creative.",
-            "I am an Innovator.",
-            "I am a Team Player."
-            ]'>
+    <header>
       
-          <span class="wrap"> </span> <span class="cursor">|</span>
-        </div>        
-        <p>🚀 Welcome to my website!</p>
+      <h1 class="gradient-text">Merciful Bolaji</h1>
+
+      <div class="typewriter">
+        <span class="typewriter-text"></span><span class="cursor">|</span>
+      </div>
+      <script>
+        const phrases = [
+          "I'm a Full-Stack Dev. ",
+          "I'm a Problem Solver. ",
+          "I am Creative. ",
+          "I am an Innovator. ",
+          "I am a Team Player. "
+        ];
       
-        <!-- Social Media Links -->
-        <div class="social-links">
-          <a href="https://www.linkedin.com/in/mercifulb/" target="_blank" aria-label="LinkedIn">
-            <img src="public/linkedin-logo.png" alt="LinkedIn Logo">
-          </a>
-          <a href="https://github.com/MercifulB" target="_blank" aria-label="GitHub">
-            <img src="public/github-logo.png" alt="GitHub Logo">
-          </a>
-          <a href="mailto:merciful.bolaji@gmail.com" aria-label="Email">
-            <img src="public/gmail-logo.png" alt="Gmail Logo">
-          </a>
-        </div>
-      </header>
+        let currentIndex = 0;
+        let currentCharIndex = 0;
+        let isDeleting = false;
+      
+        const typingSpeed = 100; // Typing speed in ms
+        const deletingSpeed = 50; // Deleting speed in ms
+        const delayBetweenPhrases = 2000; // Delay before switching phrases
+      
+        function typewriterEffect() {
+          const textElement = document.querySelector(".typewriter-text");
+          const currentPhrase = phrases[currentIndex];
+          let timeout;
+      
+          if (isDeleting) {
+            textElement.textContent = currentPhrase.substring(0, currentCharIndex--);
+            timeout = deletingSpeed;
+          } else {
+            textElement.textContent = currentPhrase.substring(0, currentCharIndex++);
+            timeout = typingSpeed;
+          }
+      
+          if (!isDeleting && currentCharIndex === currentPhrase.length) {
+            isDeleting = true;
+            timeout = delayBetweenPhrases; // Pause before deleting
+          } else if (isDeleting && currentCharIndex === 0) {
+            isDeleting = false;
+            currentIndex = (currentIndex + 1) % phrases.length; // Move to next phrase
+          }
+      
+          setTimeout(typewriterEffect, timeout);
+        }
+      
+        document.addEventListener("DOMContentLoaded", () => typewriterEffect());
+      </script>
+      
+      
+      <p>🚀 Welcome to my website!</p>
+    
+      <!-- Social Media Links -->
+      <div class="social-links">
+        <a href="https://www.linkedin.com/in/mercifulb/" target="_blank" aria-label="LinkedIn">
+          <img src="public/linkedin-logo.png" alt="LinkedIn Logo">
+        </a>
+        <a href="https://github.com/MercifulB" target="_blank" aria-label="GitHub">
+          <img src="public/github-logo.png" alt="GitHub Logo">
+        </a>
+        <a href="mailto:merciful.bolaji@gmail.com" aria-label="Email">
+          <img src="public/gmail-logo.png" alt="Gmail Logo">
+        </a>
+      </div>
+    </header>
       
 
     <div class="nobg">
         <img id=boylaptop src="./public/boylaptop.svg" alt="Boy astronaut using laptop" width="500" height="400">
     </div>
+
+    <script>
+      const bimage = document.getElementById("boylaptop");
+
+      window.addEventListener("scroll", () => {
+        const scrollPos = window.scrollY;
+        const windowHeight = window.innerHeight;
+
+        // Calculate opacity and ensure it doesn't go below 0
+        const opacity = Math.max(1 - (scrollPos / windowHeight) * 4, 0);
+        bimage.style.opacity = opacity;
+      });
+    </script>
 
     <blockquote>
     </blockquote>      
@@ -88,6 +156,7 @@
     </blockquote>
 
     <section class="intro">
+            
       <h3>
         👋🏽 Hi! My name is Merciful. I’m a second-year Computer Science student 🎓 @ the University of Waterloo passionate about software development and business.
         When I'm not coding, you can find me at the gym, drawing, reading, or listening to tech podcasts.
@@ -97,7 +166,19 @@
     
 
     <sub style="margin-top: 3rem; margin-bottom: -5rem;">
-      <h2 id ="WorkExperience"> 💼 Experience </h2>
+      <sub style="
+        margin-top: 3rem; 
+        margin-bottom: -5rem; 
+        display: inline-block; 
+        padding: 10px 20px;">
+        <h2 id="WorkExperience" style="
+          color: white; 
+          text-shadow: 0 0 8px rgba(0, 0, 0, 0.596), 
+                      0 0 15px rgba(0, 0, 0, 0.377);">
+          💼 Experience
+        </h2>
+      </sub>
+
     </sub>
       <section class="lleft">
         
@@ -209,341 +290,354 @@
       <sub>
         <h2 id ="Projects">👩🏽‍🚀 My Projects </h2>
       </sub>
-      
+
       <section class="gal">
-        <div class="card">
-          <div class="card-bg">
-              <img src="./public/pur&simple.png" alt="Pur&Simple Web Design">
-          </div>
-          <div class="card-context">
-              <div class="dark-bg"></div>
-              <h2 style="font-size: 120%;">
-                Pür & Simple Web Dev</h2>
-              <p>
-                Developed a website using HTML, CSS, and JS for a Pur & Simple restaurant location in South Korea.
-              </p>
-              <form action="https://M4-bit.github.io/Pur-and-Simple-South-Korea/index.html" target="_blank">
-                <button type="submit">Learn more</button>
-              </form>
-            </div>
-          <div class="card-icons">
-              <ul>
-                  <li>
-                      <i onclick="window.open('https://github.com/Merciful-B/Pur-and-Simple-South-Korea', '_blank');"> <img src="./public/code-icon.svg" alt="Source code"></i>
-                  </li>
-              </ul>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-bg">
-              <img src="./public/o2.png" alt="AI Brain Project">
-          </div>
-          <div class="card-context">
-              <div class="dark-bg"></div>
-              <h2>TumourTrack</h2>
-              <p>
-                Built a Machine Learning Model that detects Brain Tumours from MRI scans.
-              </p>
-              <form action="https://mercifulb.github.io/Tumour-Track/" target="_blank">
-                <button type="submit">Learn more</button>
-              </form>
-            </div>
-          <div class="card-icons">
-              <ul>
-                  <li>
-                      <i onclick="window.open('https://github.com/MercifulB/Tumour', '_blank');"> <img src="./public/code-icon.svg" alt="V"></i>
-                  </li>
-              </ul>
-          </div>
-        </div>
-
-
-        <div class="card">
-          <div class="card-bg">
-              <img src="./public/aj1.png" alt="AJ1 Web Design">
-          </div>
-          <div class="card-context">
-              <div class="dark-bg"></div>
-              <h2 style="font-size: 120%;">
-                Air Jordan Landing Page</h2>
-              <p>
-                Designed a website landing page to teach students core front-end development concepts as DataWiz.
-              </p>
-              <form action="https://mercifulb.github.io/Jordan-Landing-Page/" target="_blank">
-                <button type="submit">Learn more</button>
-              </form>
-            </div>
-          <div class="card-icons">
-              <ul>
-                  <li>
-                      <i onclick="window.open('https://github.com/MercifulB/Jordan-Landing-Page/tree/main', '_blank');"> <img src="./public/code-icon.svg" alt="Source code"></i>
-                  </li>
-              </ul>
-          </div>
-        </div>
-
-
-        <div class="card">
-          <div class="card-bg">
+        <!-- Cyber Card Example -->
+        <div class="container noselect" style="height: 38rem;">
+          <div class="card_canvas">
+            <div class="tracker tr-1"></div>
+            <div class="tracker tr-2"></div>
+            <div class="tracker tr-3"></div>
+            <div class="tracker tr-4"></div>
+            <div class="tracker tr-5"></div>
+            <div class="tracker tr-6"></div>
+            <div class="tracker tr-7"></div>
+            <div class="tracker tr-8"></div>
+            <div class="tracker tr-9"></div>
       
-            <img src="./public/hovpic.PNG" alt="..." id="hov_Images">
-
-          </div>
-          <div class="card-context">
-              <div class="dark-bg"></div>
-              <h2>Electric Hovercraft</h2>
-              <p>
-                  Designing and building a functioning hovercraft using the SPICE engineering process.
-              </p>
-              <form action="https://drive.google.com/file/d/1Lg4Tn5ciaLDS9jczzsHfUxIzElUCbwtw/view?usp=sharing" target="_blank">
-                <button type="submit">Learn more</button>
-              </form>
-            </div>
-          <div class="card-icons">
-              <ul>
-                  <li>
-                    <i onclick="window.open('https://drive.google.com/file/d/1VdQf_PmlQkFkkQNkck0pLBr6dSrrdeWL/view?usp=sharing', '_blank');"> <img src="./public/vid-play.svg" alt="V"></i>
-                  </li>
-                  <li>
-                    <i onclick="window.open('https://drive.google.com/file/d/1W4PrVflldE_fVVGcGFfapoWLsJh5HBAk/view?usp=sharing', '_blank');"> <img src="./public/book-icon.svg" alt="V"></i>
-                  </li>
-                  <li>
-                    <i onclick="window.open('https://drive.google.com/file/d/10Fxt9z3NjQmr_EKrMibsYIYzGzViW326/view?usp=sharing', '_blank');"> <img src="./public/edit-icon.svg" alt="V"></i>
-                  </li>
-              </ul>
-          </div>
-      </div>
-
-      <div class="card">
-        <div class="card-bg">
-            <img src="./public/microortho.png" alt="microscope image">
-        </div>
-        <div class="card-context">
-            <div class="dark-bg"></div>
-            <h2>Opticle</h2>
-            <p>
-                Designing an environmentally-friendly optical microscope using CAD software.
-            </p>
-            <form action="https://docs.google.com/presentation/d/14u9JUIxyLjoJlWAykumoHIWBNxVqr0x4YLqzY57EpCM/edit?usp=sharing" target="_blank">
-              <button type="submit">Learn more</button>
-            </form>
-          </div>
-        <div class="card-icons">
-            <ul>
-                <li>
-                    <i onclick="window.open('https://drive.google.com/file/d/18YDUUNfQOSN3yI_0h_1VialrVvvB9UqP/view?usp=sharing', '_blank');"> <img src="./public/vid-play.svg" alt="V"></i>
-                </li>
-           
-            </ul>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-bg">
-            <img src="./public/sp-game.PNG" alt="..." id="scratchImages">
-        </div>
-        <div class="card-context">
-            <div class="dark-bg"></div>
-            <h2>Scratch Games</h2>
-            <p>
-              I enjoy creating games, art and animations on Scratch. Check out my 50+ projects!
-            </p>
-            <form action="https://scratch.mit.edu/users/smartboy3/" target="_blank">
-              <button type="submit">Learn more</button>
-            </form>
-          </div>
-        <div class="card-icons">
-            <ul>
-                <li>
-                  <i onclick="window.open('https://scratch.mit.edu/projects/310746790/', '_blank');"> <img src="./public/planet-icon.svg" alt="Space Run"></i>
-                </li>
-                <li>
-                  <i onclick="window.open('https://scratch.mit.edu/projects/717003471/', '_blank');"> <img src="./public/box-icon.png" alt="Microbit Sports: Boxing"></i>
-                </li>
-                <li>
-                  <i onclick="window.open('https://scratch.mit.edu/projects/410696196/', '_blank');"> <img src="./public/palette-icon.svg" alt="2020 so far.."></i>
-                </li>
-            </ul>
-        </div>
-      </div>
-  
-
-      <div class="card">
-        <div class="card-bg">
-            <img src="./public/traffic.png" alt="..." id="image">
-        </div>
-        <div class="card-context">
-            <div class="dark-bg"></div>
-            <h2>Arduino Traffic Lights</h2>
-            <p>
-              Programmed and designed a traffic light system using Arduino and Tinkercad software.
-            </p>
-            <form action="https://drive.google.com/file/d/1H9d58CA7l_rFlyi8yCVClL21MARvLIql/view?usp=sharing" target="_blank">
-              <button type="submit">Learn more</button>
-            </form>
-          </div>
-        <div class="card-icons">
-            <ul>
-                <li> 
-                  <i onclick="window.open('https://drive.google.com/file/d/1FBU1vCEcwsoKsJcbQ6XOE4LCQN0PTrXx/view?usp=sharing', '_blank');"> <img src="./public/vid-play.svg" alt="Probability Game"></i>
-                </li>
-                <li>
-                  <i onclick="window.open('https://drive.google.com/file/d/1Ki7v2veHGlt0pZxCzYcgSaiVA95VDABX/view?usp=sharing', '_blank');"> <img src="./public/edit-icon.svg" alt="Probability Game"></i>
-                </li>
-                <li>
-                  <i onclick="window.open('https://drive.google.com/file/d/1PTDBGbvr7Q_Wf7eGqiUj6jEiUK2TP_JC/view?usp=sharing', '_blank');"> <img src="./public/book-icon.svg" alt="Probability Game"></i>
-                </li>
-            </ul>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-bg">
-
-          <div class="dicecontainer">
-            <div class="dice" id="dice">
-              <div class="face front"></div>
-              <div class="face back"></div>
-              <div class="face top"></div>
-              <div class="face bottom"></div>
-              <div class="face right"></div>
-              <div class="face left"></div>
-            </div>
-          </div>
-        </div>
-        <div class="card-context">
-            <div class="dark-bg"></div>
-            <h2>Probability Simulation</h2>
-            <p>
-              Coded a randomized game based on a virtual dice and spinner for a probability analysis of various events.
-            </p>
-            <form action="https://drive.google.com/file/d/1e4GR2jAempIxAPYZKLSzvycgM5M03kbV/view?usp=sharing" target="_blank">
-              <button type="submit">Learn more</button>
-            </form>
-          </div>
-        <div class="card-icons">
-            <ul>
-              <li>
-                <i onclick="window.open('https://mercifulb.github.io/ProbabilityGame/', '_blank');"> <img src="./public/dice-icon.svg" alt="Probability Game"></i>
-              </li>
-              <li>
-                <i onclick="window.open('https://github.com/MercifulB/ProbabilityGame', '_blank');"> <img src="./public/code-icon.svg" alt="Probability Game"></i>
-              </li>
-             
-            </ul>
-        </div>
-      </div>
-
-
-      <div class="card">
-        <div class="card-bg">
-          <video id="HouseVid" style="margin-top: -45px" width="550px" height="450px" controls>
-            <source src="./public/House Tour.mp4" type="video/mp4"> Your browser does not support the video tag.
-          </video>
-        </div>
-        <div class="card-context">
-            <div class="dark-bg"></div>
-            <h2>Custom House Design</h2>
-            <p>
-              Designed a home for a client using architectural principles and Revit software.
-            </p>
-            <form action="https://docs.google.com/presentation/d/1aGWMQ0WwCJJ4Ay-EYVXFTOrxb2VmPyeP/edit#slide=id.p1" target="_blank">
-              <button type="submit">Learn more</button>
-            </form>
-          </div>
-        <div class="card-icons">
-            <ul>
-                <li>
-                  <i onclick="document.getElementById('HouseVid').play()"> <img src="./public/vid-play.svg" alt="V"></i>
-                </li>
-                <li>
-                  <i onclick="window.open('https://drive.google.com/file/d/16aqxbYyFXMmVBylv1U6ur9eSy3kyAYoL/view?usp=sharing', '_blank');"> <img src="./public/edit-icon.svg" alt="Edit icon"></i>
-                </li>
-                <li>
-                  <i onclick="window.open('https://drive.google.com/file/d/1wiR1NmcQskiAvZ7K7TONwaR8xIg7d7TT/view?usp=sharing', '_blank');"> <img src="./public/home-icon.svg" alt="House icon"></i>
-                </li>
-             
-            </ul>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-bg">
-            <img src="./public/nintendo-switch.png" alt="AJ1 Web Design">
-        </div>
-        <div class="card-context">
-            <div class="dark-bg"></div>
-            <h2 style="font-size: 120%;">
-              Nintendo Switch</h2>
-            <p>
-              Designed a website landing page to teach students core front-end development concepts as DataWiz.
-            </p>
-            <form action="https://mercifulb.github.io/Switch-Landing-Page/" target="_blank">
-              <button type="submit">Learn more</button>
-            </form>
-          </div>
-        <div class="card-icons">
-            <ul>
-                <li>
-                    <i onclick="window.open('https://github.com/MercifulB/Switch-Landing-Page/tree/main', '_blank');"> <img src="./public/code-icon.svg" alt="Source code"></i>
-                </li>
-            </ul>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-bg">
-            <img src="./public/steamworks-laptop.jpg" alt="..." id="image">
-        </div>
-        <div class="card-context">
-            <div class="dark-bg"></div>
-            <h2 style="font-size: 25px;">STEAM Works Challenge</h2>
-            <p>
-              Created an engaging apocalyptic themed programming challenge for participants of our school STEAM event.
-            </p>
-            <form action="https://drive.google.com/file/d/1bUui7mRMcQrY5xdwQ752Jgyo9iAdYCna/view?usp=sharing" target="_blank">
-              <button type="submit">Learn more</button>
-            </form>
-          </div>
-        <div class="card-icons">
-            <ul>
-              <li>
-                <i onclick="window.open('https://drive.google.com/file/d/1PGjchNFtyB4n5pulVksJniRI5CnnPdt2/view?usp=sharing', '_blank');"> <img src="./public/vid-play.svg" alt="V"></i>
-            </li>
-                <li>
-                  <i onclick="window.open('https://drive.google.com/file/d/1uKVr36G3RmPzVBMi2xTmibw3RVAKlkPZ/view?usp=sharing', '_blank');"> <img src="./public/book-icon.svg" alt="Probability Game"></i>
-                </li>
-                <li>
-                  <i onclick="window.open('https://replit.com/@MB10ZZ695721/STEAM-Night-Tech-Answer#main.py', '_blank');"> <img src="./public/code-icon.svg" alt="Probability Game"></i>
-                </li>
-            </ul>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-bg">
-          <iframe style="display: none;" onload="this.style.display='block';" src="https://trinket.io/embed/python/fd216d7cb8?runOption=run" width="100%" height="450" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
-          
-        </div>
-        <div class="card-context">
-            <div class="dark-bg"></div>
-            <h2 style="font-size: 25px;">Recursion Tree</h2>
-            <p>
-              Used Python Turtle Graphics to draw a realistic tree randomizing the length and depth of branches.
-            </p>
-            <form action="https://www.geeksforgeeks.org/introduction-to-recursion-data-structure-and-algorithm-tutorials/" target="_blank">
-              <button type="submit">Learn more</button>
-            </form>
-          </div>
-        <div class="card-icons">
-            <ul>
+            <div id="card">
+              <div class="card-content">
+                <div class="card-glare"></div>
+                <div class="cyber-lines">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+      
+                <div class="card-body">
+                  <!-- Card Title -->
+                  <div class="title">ReState</div>
+      
+                  <!-- Four Images in a Row -->
+                  <div class="image-row">
+                    <img src="./public/restate_1.png" alt="Image 1">
+                    <img src="./public/restate_2.png" alt="Image 2">
+                    <img style="width: 44%;" src="./public/restate_3.png" alt="Image 3">
+                  </div>
+      
+                  <!-- Description -->
+                  <p class="description">
+                    Deployed a full-stack Real Estate application featuring Google authentication, dynamic property listings, and customizable user profiles. 
+                    Designed with modern front and back-end tools, it prioritizes scalability, efficient data fetching, and clean architecture for an 
+                    exceptional user experience.
               
-            </ul>
+                  </p>
+                  
+                  <!-- Tools Used -->
+                  <ul class="tools">
+                    <li>React Native</li>
+                    <li>Expo SDK</li>
+                    <li>TypeScript</li>
+                    <li>Appwrite</li>
+                    <li>Tailwind CSS</li>
+                    <li>Nativewind</li>
+                    
+                  </ul>
+      
+                  <!-- Three Small Links as Images -->
+                  <div class="link-row">
+
+                    <a href="https://drive.google.com/file/d/14z6eiJB68SYMenP5eLVoML2KwK3prWhq/view?usp=sharing" target="_blank">
+                      <img style=" filter: invert(1);" src="./public/vid-play.svg" alt="Link 1">
+                    </a>
+                    <a href="https://github.com/MercifulB/Real-Estate-App" target="_blank">
+                      <img src="./public/github-logo.png" alt="Link 2">
+                    </a>
+                  </div>
+                  
+                </div>
+      
+                <div class="corner-elements">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+                <div class="scan-line"></div>
+              </div>
+            </div>
+          </div>
+
+      </section>
+
+
+
+
+      <section class="gal">
+        <!-- Cyber Card Example -->
+        <div class="container noselect" style="height: 36rem;">
+          <div class="card_canvas">
+            <div class="tracker tr-1"></div>
+            <div class="tracker tr-2"></div>
+            <div class="tracker tr-3"></div>
+            <div class="tracker tr-4"></div>
+            <div class="tracker tr-5"></div>
+            <div class="tracker tr-6"></div>
+            <div class="tracker tr-7"></div>
+            <div class="tracker tr-8"></div>
+            <div class="tracker tr-9"></div>
+      
+            <div id="card">
+              <div class="card-content">
+                <div class="card-glare"></div>
+                <div class="cyber-lines">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+      
+                <div class="card-body">
+                  <!-- Card Title -->
+                  <div class="title">TumourTrack</div>
+      
+                  <!-- Four Images in a Row -->
+                  <div class="image-row">
+                    <img src="./public/o2.png" alt="Image 1">
+                    <img src="./public/tumor_pic.png" alt="Image 2">
+                    <img style="width: 44%;" src="./public/ml_pic.png" alt="Image 3">
+                  </div>
+      
+                  <!-- Description -->
+                  <p class="description">
+                    Developed a neural network machine learning model to detect brain tumours from 3,000 MRI scans. 
+                    The dataset was preprocessed by standardizing image sizes, normalizing pixel values, and 
+                    one-hot encoding labels.
+                  </p>
+                  
+                  
+      
+                  <!-- Tools Used -->
+                  <ul class="tools">
+                    <li>Python</li>
+                    <li>Flask</li>
+                    <li>Tensorflow</li>
+                    <li>Keras</li>
+                    <li>JavaScript</li>
+                    <li>HTML</li>
+                    <li>CSS</li>
+                    
+                  </ul>
+      
+                  <!-- Three Small Links as Images -->
+                  <div class="link-row">
+
+                    <a href="https://mercifulb.github.io/Tumour-Track/" target="_blank">
+                      <img style="width: 45px;" src="./public/globe_logo.png" alt="Link 1">
+                    </a>
+                    <a href="https://github.com/MercifulB/Tumour" target="_blank">
+                      <img src="./public/github-logo.png" alt="Link 2">
+                    </a>
+                    
+                  </div>
+                </div>
+      
+                <div class="corner-elements">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+                <div class="scan-line"></div>
+              </div>
+            </div>
+          </div>
+
+      </section>
+
+
+      <section class="gal">
+        <!-- Cyber Card Example -->
+        <div class="container noselect" style="height: 30rem;">
+          <div class="card_canvas">
+            <div class="tracker tr-1"></div>
+            <div class="tracker tr-2"></div>
+            <div class="tracker tr-3"></div>
+            <div class="tracker tr-4"></div>
+            <div class="tracker tr-5"></div>
+            <div class="tracker tr-6"></div>
+            <div class="tracker tr-7"></div>
+            <div class="tracker tr-8"></div>
+            <div class="tracker tr-9"></div>
+      
+            <div id="card">
+              <div class="card-content">
+                <div class="card-glare"></div>
+                <div class="cyber-lines">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+      
+                <div class="card-body">
+                  <!-- Card Title -->
+                  <div class="title">Pür & Simple</div>
+      
+                  <!-- Four Images in a Row -->
+                  <div class="image-row">
+                    <img src="./public/pur&simple.png" alt="Image 1">
+                    <img src="./public/p&s_pic1.png" alt="Image 2">
+                    <img src="./public/p&s_pic2.png" alt="Image 3">
+                    <img src="./public/p&s_pic3.png" alt="Image 4">
+                  </div>
+      
+                  <!-- Description -->
+                  <p class="description">
+                    Built and deployed a responsive website for a Pur & Simple restaurant location in South Korea 
+                    integrating Google Maps API, real-time form validation, and an intuitive booking system
+                  </p>
+      
+                  <!-- Tools Used -->
+                  <ul class="tools">
+                    <li>HTML</li>
+                    <li>CSS</li>
+                    <li>JavaScript</li>
+                  </ul>
+      
+                  <!-- Three Small Links as Images -->
+                  <div class="link-row">
+
+                    <a href="https://M4-bit.github.io/Pur-and-Simple-South-Korea/index.html" target="_blank">
+                      <img style="width: 45px;" src="./public/globe_logo.png" alt="Link 1">
+                    </a>
+                    <a href="https://github.com/MercifulB/Pur-Simple-Test" target="_blank">
+                      <img src="./public/github-logo.png" alt="Link 2">
+                    </a>
+                    
+                  </div>
+                </div>
+      
+                <div class="corner-elements">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+                <div class="scan-line"></div>
+              </div>
+            </div>
+          </div>
+
+      </section>
+
+
+
+      <section class="gal">
+        <!-- Cyber Card Example -->
+        <div class="container noselect" style="height: 36rem;"> 
+          <div class="card_canvas">
+            <div class="tracker tr-1"></div>
+            <div class="tracker tr-2"></div>
+            <div class="tracker tr-3"></div>
+            <div class="tracker tr-4"></div>
+            <div class="tracker tr-5"></div>
+            <div class="tracker tr-6"></div>
+            <div class="tracker tr-7"></div>
+            <div class="tracker tr-8"></div>
+            <div class="tracker tr-9"></div>
+      
+            <div id="card">
+              <div class="card-content">
+                <div class="card-glare"></div>
+                <div class="cyber-lines">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+      
+                <div class="card-body">
+                  <!-- Card Title -->
+                  <div class="title">Resume Analyzer</div>
+      
+                  <!-- Four Images in a Row -->
+                  <div class="image-row">
+                    <img style="width: 44%;" src="./public/Resume_analyzer1.png" alt="Image 1">
+                
+                  </div>
+      
+                  <!-- Description -->
+                  <p class="description">
+                    
+                    Developed a Resume Analyzer application that analyzes resumes and job descriptions 
+                    to identify relevant skills, keywords, and a similarity score. 
+                    It leverages pdfParse and express-fileupload for parsing PDFs on the client-side,
+                     and the PyMuPDF library for server-side text extraction.
+                  </p>
+      
+                  <!-- Tools Used -->
+                  <ul class="tools">
+                    
+                    <li>JavaScript</li>
+                    <li>Python</li>
+                    <li>Node.js</li>
+                    <li>spaCy</li>
+                    <li>PyMuPDF</li>
+                    <li>HTML</li>
+                    <li>CSS</li>
+                  </ul>
+      
+                  <!-- Three Small Links as Images -->
+                  <div class="link-row">
+
+                    <a href="https://drive.google.com/file/d/1GuA2Kb6mT4pNOkavWqth9wSUMF89DIvC/view?usp=sharing" target="_blank">
+                      <img style=" filter: invert(1);" src="./public/vid-play.svg" alt="Link 1">
+                    </a>
+                    <a href="https://github.com/MercifulB/Resume-Analyzer" target="_blank">
+                      <img src="./public/github-logo.png" alt="Link 2">
+                    </a>
+                    
+                  </div>
+                </div>
+      
+                <div class="corner-elements">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+                <div class="scan-line"></div>
+              </div>
+            </div>
+          </div>
+
+      </section>
+
+      
+      <sub>
+        <h2 sid ="Skills">🛠️ My Skills</h2>
+      </sub>
+
+      <section class="mid">
+        <div class="skills-container">
+          <img src="./public/javascript_logo.png" alt="HTML5 Logo" class="skill-logo">
+          <img src="./public/python_logo.png" alt="Python Logo" class="skill-logo">
+          <img src="./public/java_logo.png" alt="CSS3 Logo" class="skill-logo">
+          <img src="./public/html_logo.png" alt="JavaScript Logo" class="skill-logo">
+          <img src="./public/css_logo.png" alt="React Logo" class="skill-logo">
+          <img src="./public/react_logo.png" alt="Node.js Logo" class="skill-logo">
+          <img src="./public/C++_logo.png" alt="C++ Logo" class="skill-logo">
+          <img src="./public/Flask_logo.png" alt="Flask Logo" class="skill-logo">
+          <img src="./public/Tailwind_CSS_Logo.png" alt="Tailwind CSS Logo" class="skill-logo">
+          <img style="width: 80px;" src="./public/tensorflow-logo.png" alt="Tensor Flow Logo" class="skill-logo">
+          <img src="./public/node_logo.png" alt="Node Logo" class="skill-logo">
+          <img src="./public/sql_logo.png" alt="sql Logo" class="skill-logo">
+          <img src="./public/Bootstrap_logo.png" alt="Bootstrap Logo" class="skill-logo">
         </div>
-      </div>
-     
-  
-    </section>
+      </section>
+      
   
     <sub style="margin-top: 3rem; margin-bottom: 3rem;">
       <h2 id ="OtherWorks">🧩 Other Works </h2>
@@ -572,7 +666,7 @@
             Your browser does not support the video tag.
           </video>
         </div>
-        <h3>🧑‍💻 Wolfhacks Judge</h3>
+        <h3>🧑‍💻 Wolfhacks 2024 Judge</h3>
         <p>
           Provided mentorship and judged the largest student-led STEM hackathon in the Peel Region.
         </p>
@@ -601,13 +695,7 @@
     
     
 
-      <sub>
-        <h2 id ="Skills">🛠️ My Skills</h2>
-      </sub>
-
-      <section class="mid">
-        <img src="./public/skillban.svg" alt="Skills Banner" style="width:100%;height:100%;">
-      </section>
+      
       
       <sub>
         <h2 id ="Achievements">🏆 Achievements</h2>
@@ -617,11 +705,7 @@
           <h3>Schulich Leader Nominee | 2023</h3>
           <a href="https://www.schulichleaders.com/" target="_blank"> <img src="/public/schulich_logo.png" alt="Schulich Logo" style="width: 70%; height: auto;"></a>
         </section>
-        <section class="achiev">
-          <h3>Computer Engineering & Biology Subject Award | 2022</h3>
-          <a href="https://chinguacousy.peelschools.org/" target="_blank"> 
-            <img src="public/ching_logo.png" alt="Chinguacousy Logo" style="width: 50%; height: auto;"></a>
-        </section>
+      
         <section class="achiev">
           <h3>CIMC School Champion and Certificate of Distinction | 2021</h3>
           <a href="https://www.cemc.uwaterloo.ca/contests/csimc.html" target="_blank"> 
@@ -644,49 +728,47 @@
         </section>
         
       </section>
- 
-      <section class="midd">
-        
-        <div id ="Contact" class="fcf-body">
-        
-            <div id="fcf-form">
-            <h2 class="fcf-h2"> 
-               Let's Chat! 📧</h2>
-        
-            <form action="https://formsubmit.co/92b201aa48b07e76b10bb730cccd76ce" method="POST">
-                
-                <div class="fcf-form-group">
-                    <label for="Name" class="fcf-label">Your name</label>
-                    <div class="fcf-input-group">
-                        <input type="text" id="Name" name="Name" class="fcf-form-control" required>
-                    </div>
-                </div>
-        
-                <div class="fcf-form-group">
-                    <label for="Email" class="fcf-label">Your email address</label>
-                    <div class="fcf-input-group">
-                        <input type="email" id="Email" name="Email" class="fcf-form-control" required>
-                    </div>
-                </div>
-        
-                <div class="fcf-form-group">
-                    <label for="Message" class="fcf-label">Your message</label>
-                    <div class="fcf-input-group">
-                        <textarea id="Message" name="Message" class="fcf-form-control" rows="6" maxlength="3000" required></textarea>
-                    </div>
-                </div>
-        
-                <div class="fcf-form-group">
-                  <button type="submit" id="fcf-button" class="fcf-btn fcf-btn-primary fcf-btn-lg fcf-btn-block">Send Message</button>
-                </div>
-        
-            </form>
+
+    
+      
+      <section id ="Contact" class="midd" style="font-family: 'SF Pro';">
+        <div class="form-container">
+          <form 
+            action="https://formsubmit.co/92b201aa48b07e76b10bb730cccd76ce" 
+            method="POST" 
+            class="form">
+            
+            <div class="form-group">
+              <label for="email">Your Email</label>
+              <input 
+                type="email" 
+                id="email" 
+                name="Email" 
+                placeholder="Enter your email" 
+                required="">
             </div>
-          
+        
+            <div class="form-group">
+              <label for="textarea">Message</label>
+              <textarea 
+                name="Message" 
+                id="textarea" 
+                placeholder="Type your message here..." 
+                rows="6" 
+                maxlength="3000" 
+                required></textarea>
+
+            </div>
+        
+            <button class="form-submit-btn" type="submit">Send Message</button>
+          </form>
         </div>
+        
+
         
       </section>
       <footer style="position: absolute; bottom: 0; left: 0; width: 80%; background-color: #f9f9f900; padding: 10px;">
+        <p style="margin: 0; color: #f9f9f987;"> Created by Merciful with ❤️</p>
         <p style="margin: 0; color: #f9f9f953;"> &copy; 2025 Merciful Bolaji. All rights reserved.</p>
       </footer>
     </main>
