@@ -103,7 +103,7 @@ scene.background = spaceTexture;
 
 //cube
 
-const nigTexture = new THREE.TextureLoader().load('Headshot.png');
+const nigTexture = new THREE.TextureLoader().load('Headshot.PNG');
 
 const nig = new THREE.Mesh(
   new THREE.BoxBufferGeometry(3, 3, 3, 10, 10, 10),
