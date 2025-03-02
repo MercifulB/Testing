@@ -50,7 +50,7 @@ torus2.position.y = 10;
 scene.add(torus, torus2)
 
 // UW logo
-const UWTexture = new THREE.TextureLoader().load('University_of_Waterloo_seal.png', (texture) => {
+const UWTexture = new THREE.TextureLoader().load('mars.png', (texture) => {
   texture.wrapS = THREE.RepeatWrapping; // Optional: Adjust texture wrapping
   texture.wrapT = THREE.RepeatWrapping;
 });
